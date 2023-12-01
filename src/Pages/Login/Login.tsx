@@ -39,7 +39,7 @@ const Login = () => {
             }}
             component="div"
           >
-            <Typography sx={{ fontWeight: "500" }} variant="h4">
+            <Typography sx={{ fontWeight: "500" , fontSize: "30px" }}>
               Sign In
             </Typography>
             <ContinueButton>

@@ -7,11 +7,12 @@ const SubmitButton = styled.button`
     border: 2px solid #6200EE;
     background-color: #6200EE;
     color: #fff;
+    font-size: 16px;
 
     &:hover {
         background-color:#fff ;
         color: #6200EE;
-        transition: 0.4s;
+        transition: 0.5s;
     }
 
 `;
