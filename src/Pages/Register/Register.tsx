@@ -9,6 +9,10 @@ import { Link } from "react-router-dom";
 import SubmitButton from "../../Components/Buttons/SubmitBtn";
 import ContinueButton from "../../Components/Buttons/ContinueBtn";
 const Register = () => {
+  const handleSubmit = (): void => {
+    localStorage.setItem("Key", "key");
+  };
+
   return (
     <Box>
       <Container>
@@ -103,7 +107,7 @@ const Register = () => {
                 label="Your passowrd"
                 variant="outlined"
               />
-              <SubmitButton>Submit</SubmitButton>
+              <SubmitButton onClick={() => handleSubmit()}>Submit</SubmitButton>
               <Typography sx={{ textAlign: "center" }}>
                 Already signed up ?{" "}
                 <Link to="/login" style={{ color: "blue" }}>
