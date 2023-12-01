@@ -1,6 +1,7 @@
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import CreateBookModal from "../../Components/Modals/CreateBookModal";
+import BookCard from "../../Components/BookCard";
 
 const Home = () => {
   const [open, setOpen] = useState(false);
@@ -84,6 +85,9 @@ const Home = () => {
           >
             Your task today
           </Typography>
+          <Box sx={{marginTop: "1rem" , display: "flex" , alignItems: "center" , flexWrap: "wrap"}}>
+            <BookCard />
+          </Box>
         </Box>
       </Container>
     </Box>
