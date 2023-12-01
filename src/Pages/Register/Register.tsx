@@ -1,18 +1,7 @@
-import {
-  Box,
-  Container,
-  FormControl,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { Link } from "react-router-dom";
-import SubmitButton from "../../Components/Buttons/SubmitBtn";
+import { Box, Container, Typography } from "@mui/material";
 import ContinueButton from "../../Components/Buttons/ContinueBtn";
+import RegisterForm from "../../Components/RegisterForm";
 const Register = () => {
-  const handleSubmit = (): void => {
-    localStorage.setItem("Key", "key");
-  };
-
   return (
     <Box>
       <Container>
@@ -74,47 +63,7 @@ const Register = () => {
                 component="div"
               ></Box>
             </Box>
-            <FormControl
-              sx={{
-                width: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                gap: "1rem",
-              }}
-            >
-              <TextField
-                id="outlined-basic"
-                type="text"
-                label="Your username"
-                variant="outlined"
-              />
-              <TextField
-                type="email"
-                label="Your email"
-                id="outlined-basic"
-                variant="outlined"
-              />
-              <TextField
-                id="outlined-basic"
-                type="text"
-                label="Your username"
-                variant="outlined"
-              />
-              <TextField
-                id="outlined-basic"
-                type="password"
-                label="Your passowrd"
-                variant="outlined"
-              />
-              <SubmitButton onClick={() => handleSubmit()}>Submit</SubmitButton>
-              <Typography sx={{ textAlign: "center" }}>
-                Already signed up ?{" "}
-                <Link to="/login" style={{ color: "blue" }}>
-                  Go to sign in.
-                </Link>
-              </Typography>
-            </FormControl>
+            <RegisterForm />
           </Box>
         </Box>
       </Container>

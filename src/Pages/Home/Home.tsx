@@ -29,6 +29,7 @@ const Home = () => {
             <Typography sx={{ color: "#6200EE", fontSize: "36px" }}>
               7 books
             </Typography>
+            
           </Typography>
           <Box
             component="div"
