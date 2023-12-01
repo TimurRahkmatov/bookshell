@@ -1,6 +1,9 @@
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
+import { useState } from "react";
+import CreateBookModal from "../../Components/Modals/CreateBookModal";
 
 const Home = () => {
+  const [open, setOpen] = useState(false);
   return (
     <Box sx={{ padding: "2rem 0" }} component="section">
       <Container>
@@ -12,11 +15,17 @@ const Home = () => {
           }}
         >
           <Typography
-            sx={{ display: "flex", gap: "1rem", color: "#fff" }}
+            sx={{
+              display: "flex",
+              gap: "1rem",
+              alignItems: "center",
+              color: "#fff",
+              fontSize: "36px",
+            }}
             variant="h4"
           >
             You've got{" "}
-            <Typography sx={{ color: "#6200EE" }} variant="h4">
+            <Typography sx={{ color: "#6200EE", fontSize: "36px" }}>
               7 books
             </Typography>
           </Typography>
@@ -46,6 +55,7 @@ const Home = () => {
               }}
             />
             <Button
+              onClick={() => setOpen(true)}
               sx={{
                 backgroundColor: "#6200EE",
                 color: "#fff",
@@ -61,8 +71,17 @@ const Home = () => {
             </Button>
           </Box>
         </Box>
+        <CreateBookModal setOpen={setOpen} open={open} />
         <Box>
-          <Typography sx={{ marginTop: "0.6rem", color: "#fff" ,  fontWeight: "400" , fontSize: "20px" }} variant="h5">
+          <Typography
+            sx={{
+              marginTop: "0.6rem",
+              color: "#fff",
+              fontWeight: "400",
+              fontSize: "20px",
+            }}
+            variant="h5"
+          >
             Your task today
           </Typography>
         </Box>
