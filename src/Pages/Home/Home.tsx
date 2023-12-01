@@ -11,7 +11,10 @@ const Home = () => {
             justifyContent: "space-between",
           }}
         >
-          <Typography sx={{ display: "flex", gap: "1rem" }} variant="h4">
+          <Typography
+            sx={{ display: "flex", gap: "1rem", color: "#fff" }}
+            variant="h4"
+          >
             You've got{" "}
             <Typography sx={{ color: "#6200EE" }} variant="h4">
               7 books
@@ -57,6 +60,11 @@ const Home = () => {
               <i className="fa-solid fa-plus"></i> Create a book
             </Button>
           </Box>
+        </Box>
+        <Box>
+          <Typography sx={{ marginTop: "0.6rem", color: "#fff" ,  fontWeight: "400" , fontSize: "20px" }} variant="h5">
+            Your task today
+          </Typography>
         </Box>
       </Container>
     </Box>
