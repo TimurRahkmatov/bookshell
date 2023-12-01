@@ -14,7 +14,6 @@ const Public = () => {
       <Box sx={{height: "100vh", display:"flex" , justifyContent: "center" , alignItems: "center" , }}>
             <Outlet />
         </Box>
-      <Outlet />
     </>
   ) : <Navigate to='/' />;
 };
