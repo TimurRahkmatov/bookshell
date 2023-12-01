@@ -14,7 +14,6 @@ const SubmitButton = styled.button`
         color: #6200EE;
         transition: 0.5s;
     }
-
 `;
 
 
