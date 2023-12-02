@@ -16,10 +16,10 @@ interface Book {
 }
 
 export interface Books {
-    books: Book[]
+  books: Book[];
 }
 
-const initialState:Books = {
+const initialState: Books = {
   books: [],
 };
 
@@ -30,10 +30,13 @@ const bookSlice = createSlice({
     EditBooks(state, action) {
       state.books = action.payload;
     },
+    CreateBook(state, action) {
+      state?.books?.push(action.payload);
+    },
   },
 });
 
-export const { EditBooks } = bookSlice.actions;
+export const { EditBooks, CreateBook } = bookSlice.actions;
 
 const bookReducer = bookSlice.reducer;
 

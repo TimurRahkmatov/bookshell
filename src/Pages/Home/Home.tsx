@@ -9,7 +9,7 @@ const Home = () => {
   const [open, setOpen] = useState(false);
   return (
     <Box sx={{ padding: "2rem 0" }} component="section">
-      <Container>
+      <Container >
         <Box
           sx={{
             display: "flex",
@@ -88,7 +88,7 @@ const Home = () => {
           >
             Your task today
           </Typography>
-          <Box sx={{marginTop: "1rem" , display: "flex" , alignItems: "center"  , flexWrap: "wrap" , gap: "2rem"}}>
+          <Box sx={{marginTop: "1rem" , display: "grid" , gridTemplateColumns: "3fr 1fr 1fr" , gap: "1rem"}}>
             <BookCard />
           </Box>
         </Box>

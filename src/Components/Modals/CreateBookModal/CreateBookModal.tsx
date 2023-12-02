@@ -10,10 +10,13 @@ import {
 } from "@mui/material";
 import { book_api } from "../../../Api/book.api";
 import Crypto from "crypto-js";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
+import { useAppDispatch } from "../../../store";
+import { CreateBook } from "../../../store/slices/book";
 
 const CreateBookModal = ({ open, setOpen }: any) => {
   const [isbn, setIsbn] = useState("");
+  const dispatch = useAppDispatch();
   const SECRET = localStorage.getItem("Secret");
   const handleCreateBook = async (e: any) => {
     e.preventDefault();
@@ -25,11 +28,15 @@ const CreateBookModal = ({ open, setOpen }: any) => {
         { isbn: isbn },
         HASH_CREATE_BOOK
       );
-      if(data?.isOk == true) {
-        toast("success created book" , {type: "success"})
+      if (data?.isOk == true) {
+        toast("success created book", { type: "success" });
+        dispatch(CreateBook({ book: data?.data }));
+        setOpen(false);
       }
-      console.log(data);
-    } catch (error) {
+    } catch (error: any) {
+      if (error?.response?.data?.isOk === false) {
+        toast(error?.response.data?.message, { type: "error" });
+      }
       console.log(error);
     }
   };
