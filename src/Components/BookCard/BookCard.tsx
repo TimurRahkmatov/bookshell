@@ -1,8 +1,26 @@
 import { Box, Skeleton, Typography } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { book_api } from "../../Api/book.api";
+import { HASH_GET_BOOKS } from "../../constains/Cryptohashs";
+// import {} from "" 
 
 const BookCard = () => {
+  // const dispatch = useDispatch()
   const [loading, setLoading] = useState(false);
+  const findBooks = async () => {
+    try {
+      setLoading(true);
+      const { data } = await book_api.findBook(HASH_GET_BOOKS);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    findBooks();
+  }, []);
 
   const state = [
     {

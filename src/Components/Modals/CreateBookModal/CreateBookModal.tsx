@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   Button,
@@ -7,7 +8,32 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { book_api } from "../../../Api/book.api";
+import Crypto from "crypto-js";
+import { toast } from 'react-toastify';
+
 const CreateBookModal = ({ open, setOpen }: any) => {
+  const [isbn, setIsbn] = useState("");
+  const SECRET = localStorage.getItem("Secret");
+  const handleCreateBook = async (e: any) => {
+    e.preventDefault();
+    const HASH_CREATE_BOOK = Crypto.MD5(
+      `POST/books{"isbn":"${isbn}"}` + SECRET
+    ).toString();
+    try {
+      const { data } = await book_api.createBook(
+        { isbn: isbn },
+        HASH_CREATE_BOOK
+      );
+      if(data?.isOk == true) {
+        toast("success created book" , {type: "success"})
+      }
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleClose = () => setOpen(false);
   return (
     <>
@@ -58,6 +84,7 @@ const CreateBookModal = ({ open, setOpen }: any) => {
             </Box>
           </Box>
           <FormControl
+            onSubmit={handleCreateBook}
             component="form"
             sx={{
               width: "100%",
@@ -73,6 +100,8 @@ const CreateBookModal = ({ open, setOpen }: any) => {
                 Book Isbn Number
               </FormLabel>
               <TextField
+                value={isbn}
+                onChange={(e) => setIsbn(e.target.value)}
                 placeholder="Mavjud bo'lgan kitob isbn nomerini kiriting"
                 id="isb"
                 sx={{ width: "100%", marginTop: "0.4rem" }}
@@ -114,7 +143,6 @@ const CreateBookModal = ({ open, setOpen }: any) => {
                 Close
               </Button>
               <Button
-               
                 sx={{
                   width: "100%",
                   color: "#fff",
