@@ -86,7 +86,7 @@ const Home = () => {
           >
             Your task today
           </Typography>
-          <Box sx={{marginTop: "1rem" , display: "flex" , alignItems: "center" , flexWrap: "wrap"}}>
+          <Box sx={{marginTop: "1rem" , display: "flex" , alignItems: "center"  , flexWrap: "wrap" , gap: "2rem"}}>
             <BookCard />
           </Box>
         </Box>

@@ -1,10 +1,10 @@
 import { Outlet , Navigate} from "react-router-dom";
 import { Box } from "@mui/material";
 import BackgroundImage from "../../Images/background.png"
-import { KEY } from "../../constains/HeaderCase";
+// import { KEY } from "../../constains/HeaderCase";
 const Public = () => {
-
-  return KEY == null ? (
+  const key = localStorage.getItem("Key")
+  return key === null ? (
     <>
       <img
         className="background_image"
@@ -15,7 +15,7 @@ const Public = () => {
             <Outlet />
         </Box>
     </>
-  ) : <Navigate to='/' />;
+  ) : <Navigate to='/'/>;
 };
 
 export default Public;

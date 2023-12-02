@@ -1,9 +1,9 @@
 import { Outlet, Navigate } from "react-router-dom";
 import Header from "../../Components/Header";
-import { KEY } from "../../constains/HeaderCase";
 import BackgroundImage from "../../Images/background.png";
 const Private = () => {
-  return KEY ? (
+  const key = localStorage.getItem("Key")  
+  return key ? (
     <>
       <img
         className="background_image"
