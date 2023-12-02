@@ -2,8 +2,10 @@ import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import CreateBookModal from "../../Components/Modals/CreateBookModal";
 import BookCard from "../../Components/BookCard";
+import { useAppSelector } from "../../store";
 
 const Home = () => {
+  const state = useAppSelector((state) => state?.books.books)
   const [open, setOpen] = useState(false);
   return (
     <Box sx={{ padding: "2rem 0" }} component="section">
@@ -27,7 +29,7 @@ const Home = () => {
           >
             You've got{" "}
             <Typography sx={{ color: "#6200EE", fontSize: "36px" }}>
-              7 books
+              {state?.length} book
             </Typography>
             
           </Typography>
