@@ -1,9 +1,10 @@
-import { Box, Button, Container, TextField, Typography } from "@mui/material";
+import { Box, Container, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import CreateBookModal from "../../Components/Modals/CreateBookModal";
 import BookCard from "../../Components/BookCard";
 import { useAppSelector } from "../../store";
 import SearchCard from "../../Components/SearchCard";
+import SubmitButton from "../../Components/Buttons/SubmitBtn";
 
 const Home = () => {
   const state = useAppSelector((state) => state?.books);
@@ -58,21 +59,10 @@ const Home = () => {
                 borderRadius: "4px",
               }}
             />
-            <Button
-              onClick={() => setOpen(true)}
-              sx={{
-                backgroundColor: "#6200EE",
-                color: "#fff",
-                textTransform: "none",
-                display: "flex",
-                alignItems: " center",
-                gap: "0.3rem",
-                justifyContent: "center",
-              }}
-            >
-              {" "}
+
+            <SubmitButton>
               <i className="fa-solid fa-plus"></i> Create a book
-            </Button>
+            </SubmitButton>
           </Box>
         </Box>
         <CreateBookModal setOpen={setOpen} open={open} />
