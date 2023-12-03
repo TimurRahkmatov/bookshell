@@ -60,9 +60,11 @@ const Home = () => {
               }}
             />
 
+            <Box sx={{width: "180px"}}>
             <SubmitButton onClick={() => setOpen(true)}>
               <i className="fa-solid fa-plus"></i> Create a book
             </SubmitButton>
+            </Box>
           </Box>
         </Box>
         <CreateBookModal setOpen={setOpen} open={open} />

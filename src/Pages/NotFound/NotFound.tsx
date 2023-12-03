@@ -3,6 +3,7 @@ import NotFoundImg from "../../Images/404.png"
 import { Box } from "@mui/material";
 import SubmitButton from "../../Components/Buttons/SubmitBtn";
 import { Link } from "react-router-dom";
+import SubmitInfoButton from "../../Components/Buttons/SubmitInfoBtn";
 
 
 const NotFound = () => {
@@ -25,6 +26,7 @@ const NotFound = () => {
         <img src={NotFoundImg} alt="404 Page not found" />
         <Box sx={{width: '400px' , display: "flex" , justifyContent: "space-between" , alignItems: "center" , gap: "2rem" , marginTop: '1rem'}} component="div"> 
           <Link style={{width: "100%"}} to="/"><SubmitButton>Go Home page</SubmitButton></Link>
+          <Link style={{width: "100%"}} to='/'><SubmitInfoButton>Reaload page</SubmitInfoButton></Link>
         </Box>
       </Box>
     </Box>

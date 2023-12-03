@@ -8,6 +8,9 @@ import { auth_api } from "../../Api/auth.api";
 
 const RegisterForm = () => {
   const navigate = useNavigate();
+  const [usernameError, setUsernameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -22,6 +25,19 @@ const RegisterForm = () => {
 
   const handleRegisterSubmit = async (e: any) => {
     e.preventDefault();
+    const regex = /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (values.name.length == 0) {
+      setUsernameError(true);
+    }
+    if (regex.test(values.email)) {
+      setEmailError(true);
+    }
+    if (values.secret === "") {
+      setPasswordError(true);
+    }
+    setEmailError(false);
+    setPasswordError(false);
+    setUsernameError(false);
     try {
       setLoading(true);
       const { data } = await auth_api.register(values);
@@ -52,6 +68,7 @@ const RegisterForm = () => {
         }}
       >
         <TextField
+          error={usernameError}
           id="outlined-basic"
           type="text"
           onChange={handleInputChange}
@@ -61,6 +78,7 @@ const RegisterForm = () => {
           variant="outlined"
         />
         <TextField
+          error={emailError}
           onChange={handleInputChange}
           value={values?.email}
           name="email"
@@ -70,6 +88,7 @@ const RegisterForm = () => {
           variant="outlined"
         />
         <TextField
+          error={usernameError}
           id="outlined-basic"
           type="text"
           onChange={handleInputChange}
@@ -79,6 +98,7 @@ const RegisterForm = () => {
           variant="outlined"
         />
         <TextField
+          error={passwordError}
           id="outlined-basic"
           type="password"
           onChange={handleInputChange}

@@ -69,7 +69,7 @@ const Header = () => {
               sx={{ width: "250px", color: "#fff" }}
               id="my-input"
               name="my-input"
-              placeholder="Search for any training you want"
+              placeholder="Search the book and press enter"
               aria-describedby="my-helper-text"
             />
           </Box>
