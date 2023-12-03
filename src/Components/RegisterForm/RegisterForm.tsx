@@ -41,8 +41,10 @@ const RegisterForm = () => {
           localStorage.setItem("Secret", data?.data?.secret);
           navigate("/");
         }
-      } catch (error) {
-        console.log(error);
+      } catch (error:any) {
+        if(error?.response.data?.message) {
+          toast(error?.response.data?.message , {type: "error"})
+        }
       } finally {
         setLoading(false);
       }
