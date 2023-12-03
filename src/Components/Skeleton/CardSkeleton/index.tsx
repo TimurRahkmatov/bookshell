@@ -8,9 +8,11 @@ const CardSkeleton = () => {
           key={index}
           animation="wave"
           variant="rectangular"
-          width={360}
-          height={200}
-          sx={{ borderRadius: "7px", backgroundColor: "#6d6d6d4e" }}
+          sx={{
+            borderRadius: "7px",
+            backgroundColor: "#6d6d6d4e",
+            width: { lg: "370px", md: "380px", sm: "360px", xs: "300px" },
+          }}
         />
       ))}
     </>
