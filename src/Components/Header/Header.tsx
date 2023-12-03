@@ -19,11 +19,7 @@ const Header = () => {
   }
 
 
-  if(loading === true) {
-    return (
-      <Spinner />
-    )
-  }
+
 
   const findSearchBooks = async () => {
     try {
@@ -90,6 +86,7 @@ const Header = () => {
           </Box>
         </Box>
       </Container>
+      {loading === true ? <Spinner /> : ''}
     </Box>
   );
 };
