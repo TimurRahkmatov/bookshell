@@ -88,8 +88,8 @@ const Home = () => {
             sx={{
               marginTop: "2rem",
               display: "grid",
-              gridTemplateColumns: "3fr 1fr 1fr",
-              gap: "1rem",
+              gap: "1.4rem",
+              gridTemplateColumns: {xs: "1fr" , sm: "1fr 1fr" , md: "1fr 1fr"}
             }}
           >
             {state?.search !== null ? <SearchCard /> : <BookCard />}

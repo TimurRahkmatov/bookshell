@@ -25,7 +25,7 @@ const SearchCard = () => {
             }}
           >
             <Typography
-              sx={{ fontSize: "1.1rem", fontWeight: "600", width: "350px" }}
+              sx={{ fontSize: "1.1rem", fontWeight: "600", maxWidth: "350px" }}
             >
               {item.title}
             </Typography>

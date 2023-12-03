@@ -25,32 +25,27 @@ const RegisterForm = () => {
 
   const handleRegisterSubmit = async (e: any) => {
     e.preventDefault();
-    const regex = /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (values.name.length == 0) {
+    if (values.name == "") {
       setUsernameError(true);
-    }
-    if (regex.test(values.email)) {
+    } else if (values.email === "") {
       setEmailError(true);
-    }
-    if (values.secret === "") {
+    } else if (values.secret === "") {
       setPasswordError(true);
-    }
-    setEmailError(false);
-    setPasswordError(false);
-    setUsernameError(false);
-    try {
-      setLoading(true);
-      const { data } = await auth_api.register(values);
-      if (data?.isOk == true) {
-        toast("Success registered", { type: "success" });
-        localStorage.setItem("Key", data?.data?.key);
-        localStorage.setItem("Secret", data?.data?.secret);
-        navigate("/");
+    } else {
+      try {
+        setLoading(true);
+        const { data } = await auth_api.register(values);
+        if (data?.isOk == true) {
+          toast("Success registered", { type: "success" });
+          localStorage.setItem("Key", data?.data?.key);
+          localStorage.setItem("Secret", data?.data?.secret);
+          navigate("/");
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -88,7 +83,6 @@ const RegisterForm = () => {
           variant="outlined"
         />
         <TextField
-          error={usernameError}
           id="outlined-basic"
           type="text"
           onChange={handleInputChange}
@@ -108,9 +102,15 @@ const RegisterForm = () => {
           variant="outlined"
         />
         <SubmitButton>Submit</SubmitButton>
-        <Typography sx={{ textAlign: "center" , width: {xs: "150px" , sm: "170px" , md: "250px" , lg: "250px"} , margin: {xs: "auto" , sm: "auto"} }}>
+        <Typography
+          sx={{
+            textAlign: "center",
+            width: { xs: "150px", sm: "170px", md: "250px", lg: "250px" },
+            margin: { xs: "auto", sm: "auto" },
+          }}
+        >
           Already signed up ?{" "}
-          <Link to="/login" style={{ color: "blue"  }}>
+          <Link to="/login" style={{ color: "blue" }}>
             Go to sign in.
           </Link>
         </Typography>

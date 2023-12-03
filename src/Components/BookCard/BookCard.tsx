@@ -53,7 +53,7 @@ const BookCard = () => {
                 }}
               >
                 <Typography
-                  sx={{ fontSize: "1.1rem", fontWeight: "600", width: "350px" }}
+                  sx={{ fontSize: "1.1rem", fontWeight: "600", maxWidth: "350px" }}
                 >
                   {item?.book?.title}
                 </Typography>
@@ -85,7 +85,7 @@ const BookCard = () => {
 
                   <Box
                     sx={{
-                      maxWidth: "80px",
+                      minWidth: "80px",
                       height: "23px",
                       borderRadius: "10px",
                       backgroundColor: "#EFE6FD",
