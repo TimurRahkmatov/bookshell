@@ -40,11 +40,11 @@ const BookCard = () => {
                 component="div"
                 key={item?.book.id}
                 sx={{
-                  width: { lg: "370px", md: "380px", sm: "360px", xs: "330px" },
+                  width: { lg: "370px", md: "380px", sm: "360px", xs: "300px" },
                   boxShadow: "0px 0px 20px #aaaaaa47",
                   backgroundColor: "#fff",
                   padding: "1.5rem",
-                  minHeight: "200px",
+                  minHeight: "170px",
                   borderRadius: "8px",
                   display: "flex",
                   flexDirection: "column",
@@ -57,7 +57,7 @@ const BookCard = () => {
                 >
                   {item?.book?.title}
                 </Typography>
-                <Typography sx={{ width: { lg: "340px", md: "330px", sm: "300px", xs: "300px" } }}>
+                <Typography sx={{ width: { lg: "340px", md: "330px", sm: "300px", xs: "280px" } }}>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
                   minus. Nostrum iste!
                 </Typography>
@@ -73,12 +73,12 @@ const BookCard = () => {
                       display: "flex",
                       alignItems: "center",
                       gap: "0.4rem",
-                      fontSize: {xs: "15px"} 
+                      fontSize: {xs: "13px" , lg: "17px", md: "16px", sm: "15px"} ,
                     }}
                     variant="body1"
                   >
                     {item?.book?.author}:
-                    <Typography variant="body1" sx={{ color: "grey" , fontSize: {xs: "15px"} }}>
+                    <Typography variant="body1" sx={{ color: "grey" , fontSize: {xs: "13px" , lg: "17px", md: "16px", sm: "15px"} }}>
                       {item?.book?.published}-year
                     </Typography>
                   </Typography>
@@ -93,6 +93,8 @@ const BookCard = () => {
                       padding: "0 0.7rem",
                       justifyContent: "center",
                       alignItems: "center",
+                      
+                      fontSize: {xs: "13px"},
                       color: "#9654F4",
                     }}
                   >
