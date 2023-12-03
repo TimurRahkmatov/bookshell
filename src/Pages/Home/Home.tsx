@@ -75,7 +75,7 @@ const Home = () => {
           <Typography
             sx={{
               marginTop: "1rem",
-              color: "#fff",
+              color: {xs: "#black" , sm: "#fff"},
               fontWeight: "400",
               fontSize: "20px",
             }}

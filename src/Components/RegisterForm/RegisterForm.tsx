@@ -108,9 +108,9 @@ const RegisterForm = () => {
           variant="outlined"
         />
         <SubmitButton>Submit</SubmitButton>
-        <Typography sx={{ textAlign: "center" }}>
+        <Typography sx={{ textAlign: "center" , width: {xs: "150px" , sm: "170px" , md: "250px" , lg: "250px"} , margin: {xs: "auto" , sm: "auto"} }}>
           Already signed up ?{" "}
-          <Link to="/login" style={{ color: "blue" }}>
+          <Link to="/login" style={{ color: "blue"  }}>
             Go to sign in.
           </Link>
         </Typography>

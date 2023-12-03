@@ -46,7 +46,7 @@ const Login = () => {
               <i style={{ color: "red" }} className="fa-brands fa-google"></i>{" "}
               Continue with Google
             </ContinueButton>
-            <ContinueButton>
+            <ContinueButton style={{marginTop: "0.5rem"}} >
               <i
                 style={{ color: "blue" }}
                 className="fa-brands fa-facebook"
@@ -97,7 +97,7 @@ const Login = () => {
                 variant="outlined"
               />
               <SubmitButton>Submit</SubmitButton>
-              <Typography sx={{ textAlign: "center" }}>
+              <Typography sx={{ textAlign: "center" ,  width: {xs: "170px" , sm: "170px" , md: "270px" , lg: "270px"} , margin: {xs: "auto" , sm: "auto"}  }}>
                 Already signed up ?{" "}
                 <Link to="/register" style={{ color: "blue" }}>
                   Go to sign up.
