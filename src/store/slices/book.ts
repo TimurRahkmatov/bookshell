@@ -7,7 +7,14 @@ interface BookInfo {
   isbn: string;
   pages: number;
   title: string;
-  published: string;
+  published: number;
+}
+
+interface SearchBookInfo {
+  author: string;
+  cover: string;
+  title: string;
+  published: number
 }
 
 interface Book {
@@ -17,10 +24,12 @@ interface Book {
 
 export interface Books {
   books: Book[];
+  search: SearchBookInfo[];
 }
 
 const initialState: Books = {
   books: [],
+  search: [],
 };
 
 const bookSlice = createSlice({
@@ -33,10 +42,13 @@ const bookSlice = createSlice({
     CreateBook(state, action) {
       state?.books?.push(action.payload);
     },
+    SearchFind(state, action) {
+      state.search = action.payload;
+    },
   },
 });
 
-export const { EditBooks, CreateBook } = bookSlice.actions;
+export const { EditBooks, CreateBook, SearchFind } = bookSlice.actions;
 
 const bookReducer = bookSlice.reducer;
 

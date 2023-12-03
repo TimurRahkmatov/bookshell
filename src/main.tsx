@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import axios from "axios";
@@ -21,12 +20,12 @@ import store from "./store";
 axios.defaults.headers.common["Content-Type"] = "application/json";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Router>
       <Provider store={store}>
         <App />
       </Provider>
       <ToastContainer theme="colored" />
     </Router>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

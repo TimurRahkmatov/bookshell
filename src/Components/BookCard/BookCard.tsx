@@ -1,10 +1,11 @@
-import { Box, Skeleton, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import { book_api } from "../../Api/book.api";
 import { HASH_GET_BOOKS } from "../../constains/Cryptohashs";
 import { EditBooks } from "../../store/slices/book";
 import { useAppDispatch, useAppSelector } from "../../store";
 import CardButtons from "../CardButtons";
+import CardSkeleton from "../Skeleton/CardSkeleton";
 
 const BookCard = () => {
   const dispatch = useAppDispatch();
@@ -14,7 +15,11 @@ const BookCard = () => {
     try {
       setLoading(true);
       const { data } = await book_api.findBook(HASH_GET_BOOKS);
-      dispatch(EditBooks(data?.data));
+      if(data?.data === null) {
+        dispatch(EditBooks([]));
+      }else {
+        dispatch(EditBooks(data?.data));
+      }
     } catch (error) {
       console.log(error);
     } finally {
@@ -30,7 +35,7 @@ const BookCard = () => {
     <>
       {loading == false
         ? state?.map((item) => (
-            <Box sx={{ display: "flex" }}>
+            <Box key={item.book.id} sx={{ display: "flex" }}>
               <Box
                 component="div"
                 key={item?.book.id}
@@ -69,9 +74,10 @@ const BookCard = () => {
                       alignItems: "center",
                       gap: "0.4rem",
                     }}
+                    variant="body1"
                   >
                     {item?.book?.author}:
-                    <Typography sx={{ color: "grey" }}>
+                    <Typography variant="body1" sx={{ color: "grey" }}>
                       {item?.book?.published}-year
                     </Typography>
                   </Typography>
@@ -102,19 +108,10 @@ const BookCard = () => {
                   }}
                 ></Box>
               </Box>
-              <CardButtons />
+              <CardButtons id={item?.book?.id} />
             </Box>
           ))
-        : [0, 1, 2].map((index: number) => (
-            <Skeleton
-              key={index}
-              animation="wave"
-              variant="rectangular"
-              width={360}
-              height={200}
-              sx={{ borderRadius: "7px", backgroundColor: "#6d6d6d4e" }}
-            />
-          ))}
+        : (<CardSkeleton />)}
     </>
   );
 };

@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^1.9.7",
     "@types/crypto-js": "^4.2.1",
     "@types/react-router-dom": "^5.3.3",
+    "antd": "^5.11.5",
     "axios": "^1.6.2",
     "crypto-js": "^4.2.0",
     "cryptojs": "^2.5.3",

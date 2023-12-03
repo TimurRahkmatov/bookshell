@@ -1,40 +1,16 @@
 import { Box } from "@mui/material";
+import DeleteBtn from "../Buttons/DeleteBtn";
+import EditBtn from "../Buttons/EditBtn";
 
-const CardButtons = () => {
+export interface Id {
+  id: number;
+}
+
+const CardButtons = ({ id }: any) => {
   return (
     <Box>
-      <Box
-        component="div"
-        sx={{
-          width: "33px",
-          height: "33px",
-          marginTop: "1rem",
-          backgroundColor: "red",
-          color: "#fff",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: "5px",
-        }}
-      >
-        <i className="fa-solid fa-trash"></i>
-      </Box>
-      <Box
-        component="div"
-        sx={{
-          width: "33px",
-          height: "33px",
-          marginTop: "0.5rem",
-          backgroundColor: "blue",
-          color: "#fff",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: "5px",
-        }}
-      >
-        <i className="fa-solid fa-pencil"></i>
-      </Box>
+      <DeleteBtn id={id} />
+      <EditBtn id={id}/>
     </Box>
   );
 };
