@@ -40,7 +40,7 @@ const BookCard = () => {
                 component="div"
                 key={item?.book.id}
                 sx={{
-                  width: { lg: "370px", md: "380px", sm: "360px", xs: "340px" },
+                  width: { lg: "370px", md: "380px", sm: "360px", xs: "330px" },
                   boxShadow: "0px 0px 20px #aaaaaa47",
                   backgroundColor: "#fff",
                   padding: "1.5rem",
@@ -57,7 +57,7 @@ const BookCard = () => {
                 >
                   {item?.book?.title}
                 </Typography>
-                <Typography sx={{ width: "350px" }}>
+                <Typography sx={{ width: { lg: "340px", md: "330px", sm: "300px", xs: "300px" } }}>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
                   minus. Nostrum iste!
                 </Typography>
@@ -73,18 +73,19 @@ const BookCard = () => {
                       display: "flex",
                       alignItems: "center",
                       gap: "0.4rem",
+                      fontSize: {xs: "15px"} 
                     }}
                     variant="body1"
                   >
                     {item?.book?.author}:
-                    <Typography variant="body1" sx={{ color: "grey" }}>
+                    <Typography variant="body1" sx={{ color: "grey" , fontSize: {xs: "15px"} }}>
                       {item?.book?.published}-year
                     </Typography>
                   </Typography>
 
                   <Box
                     sx={{
-                      minWidth: "80px",
+                      maxWidth: "80px",
                       height: "23px",
                       borderRadius: "10px",
                       backgroundColor: "#EFE6FD",

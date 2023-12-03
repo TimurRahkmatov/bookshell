@@ -17,15 +17,17 @@ const Home = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            flexWrap: "wrap",
           }}
         >
           <Typography
             sx={{
               display: "flex",
               gap: "1rem",
+              
               alignItems: "center",
               color: "#fff",
-              fontSize: "36px",
+              fontSize: {lg: "36px" , sm: "34px" , xs: "29px"},
             }}
             variant="h4"
           >
@@ -39,7 +41,8 @@ const Home = () => {
             sx={{
               display: "flex",
               alignItems: "center",
-              justifyContent: "center",
+              flexWrap: "wrap",
+            
               gap: "1rem",
             }}
           >
@@ -71,7 +74,7 @@ const Home = () => {
         <Box>
           <Typography
             sx={{
-              marginTop: "0.6rem",
+              marginTop: "1rem",
               color: "#fff",
               fontWeight: "400",
               fontSize: "20px",
@@ -83,7 +86,7 @@ const Home = () => {
 
           <Box
             sx={{
-              marginTop: "1rem",
+              marginTop: "2rem",
               display: "grid",
               gridTemplateColumns: "3fr 1fr 1fr",
               gap: "1rem",
